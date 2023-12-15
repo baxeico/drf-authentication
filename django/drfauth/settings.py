@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',    
 ]
 
 ROOT_URLCONF = 'drfauth.urls'
@@ -136,3 +137,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 }
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+SESSION_EXPIRE_SECONDS = 3600  # 1 hour
+#SESSION_TIMEOUT_REDIRECT = 'your_redirect_url_here/'
+
